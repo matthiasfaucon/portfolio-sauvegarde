@@ -1,0 +1,829 @@
+*{
+  cursor: url("../img/cursorNoir.png"),pointer;
+  
+}
+
+@font-face {
+    font-family: "D-DIN Bold";
+    src: url("../font/D-DINCondensed-Bold.woff2") format("woff2"),
+           url("/fonts/D-DINCondensed-Bold.woff") format("woff");
+   }
+
+   @font-face {
+    font-family: "Eras medium ITC";
+    src: url("../font/ErasMediumITC.ttf") format("ttf"),
+   }
+
+h2{
+  font-family: "D-DIN Bold", serif;
+  font-size: 4em;
+}
+
+
+body 
+{
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 9px; 
+  color: #eceaef;
+  font-family: Myriad Pro;
+  box-sizing: border-box;
+  width: 100%;
+  /* overflow-y: hidden; */
+}
+
+a,i{
+
+  cursor: url("../img/cursorJaune.png"),pointer;
+}
+
+header #logo img{
+  color: white;
+  float: left;
+  display: flex;
+  align-items: flex-start;
+  margin-left : 6vw;
+  width: 4vw;
+
+} 
+
+header #logo a:visited{
+  color: white;
+}
+
+.togglenone{
+  display: none;
+}
+
+#apresClick{
+  display: none;
+}
+
+#apresClickMenu{
+  display: none;
+}
+
+.container img{
+  background-size: cover;
+  position: absolute;
+  width: 50vh;
+  left: 9vw;
+  top: 15vh;
+}
+/******************/
+#toggle 
+{
+    position: relative;
+    width: 50px; 
+    height: 50px;
+    background: transparent; 
+    background-size: cover;
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+} 
+#toggle.active
+{
+    background: #d4b902;
+} 
+
+ #toggle.active::before 
+{
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 0 #fff;
+}
+
+ #toggle::before
+{ 
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transition: 0.2s; 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 0 #fff;
+} 
+
+#toggle::after
+{ 
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transition: 0.2s; 
+    transform: translateY(10px);
+} 
+
+#toggle.active::after 
+{
+    transform: translateY(0px)rotate(-45deg);
+}
+
+#mediaQuery{
+  display: none;
+}
+/****************************/
+
+header{
+  top:0;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#remplacant{
+  display: none;
+}
+
+.toggleactive{
+margin-right: 6%;
+}
+
+.containerMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.menu{
+  font-family: "D-DIN Bold", serif;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  color: white;
+  margin-top: 2%;
+  opacity: 0.8;
+  font-size: 2.5em;
+  width: 100px;
+  text-decoration: none; /*enlever attributs texte (ici underline) */
+}
+
+#menuToggleDiv{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  margin-top: 10vh;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 1;
+  position: fixed;
+}
+
+.positionnementMenu{
+  display: flex;
+  margin-top: 10%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#menuToggleDiv.active{
+  display: initial;
+}
+
+.menuToggle{
+  font-family: "D-DIN Bold", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  color: white;
+  text-decoration: none; /*enlever attributs texte (ici underline) */
+}
+
+.menu:hover { /* quand survoler */
+  transition-duration: 0.2s;  /*temps de la transition */
+  transition-timing-function: ease-out;
+  text-decoration: underline 2px #d4b902;
+  color:#C2C1C1;
+  opacity:0.9;
+}
+/***************/ 
+.menuToggle:hover { /* quand survoler */
+  transition-duration: 0.2s;  /*temps de la transition */
+  transition-timing-function: ease-out;
+  text-decoration: underline 2px #d4b902;
+  color:#C2C1C1;
+  opacity:0.9;
+}
+
+#prenom{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+ background-color: black;
+ height: 100vh;
+ width: 100%;
+ justify-content: center;
+}
+
+#prenom h2{
+  font-weight: 500;
+  font-size: 7em;
+  color: rgba(255,255,255,0.9);
+}
+
+/***************/
+.text-wrapper .letters {
+  font-weight: 700;
+  font-size:5em;
+  color: #fff;
+  font-family: "Eras medium ITC", serif;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .10em solid #d4b902; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 4s steps(15, end),
+    blink-caret 0.5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #d4b902 }
+}
+
+/******/
+
+#plus{
+  font-family: "D-DIN Bold", serif;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+  justify-content: flex-end;
+  width: 15vh;
+}
+
+.cv{
+  height: 20vh;
+  top: 0;
+}
+
+#cv{
+  font-family: "D-DIN Bold", serif;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+}
+
+#cv p{
+  font-size: 2.5em;
+  color: #d4b902;
+  padding: 0.5%;
+  animation: down 1s infinite linear alternate;
+  font-family: "D-DIN Bold", serif;
+}
+
+#cv i{
+  color: #d4b902;
+  transform: scale(4);
+  animation: down 1s infinite linear alternate;
+}
+
+#plus i,#plus p{
+  color: #d4b902;
+  padding: 10%;
+transform: scale(3.5);
+animation: down 1s infinite linear alternate;
+}
+
+@keyframes down{
+	0% {position:relative; top:0px; opacity: 0}
+	50% {position:relative; top:5px; opacity: 0.5}
+	100% {position:relative; top:20px; opacity: 1}
+
+}
+
+/* #plus:hover { /* quand survoler */
+  /* transform: scale(1.2); */
+/* } */
+
+/***************/ 
+#presentation{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: static;
+  box-shadow: 2px 0px 7px white;
+  background-color: #0E0E0E;
+  
+}
+
+.containerPresentation{
+  display: flex;
+  padding: 10% 5% 5% 5%;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center ;
+  text-align: center;
+}
+
+.containerPresentation h2{
+  font-size: 4em;
+}
+
+.containerPresentation p{
+  font-size: 2.3em;
+  font-family: "Eras medium ITC", serif;
+}
+
+.containerServices div img{
+  width: 30%;
+}
+
+.containerServices div img.active{
+  display: none;
+}
+
+#services{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  color: #313437;
+}
+
+.titleServices, .pServices{
+  font-size: 3em;
+  text-align: center;
+
+}
+.containerServices{
+
+display: flex;
+flex-wrap: wrap;
+}
+
+.containerServices div{
+  padding-top: 3%;
+  }
+
+.titleServices, .titleCreations{
+
+  font-size: 3em;
+}
+
+.pServices, .pCreations{
+  font-family: "Eras medium ITC", serif;
+  padding-bottom: 1%;
+  font-size: 2em;
+  color: grey;
+} 
+
+
+
+.audiovisuel, .programmation, .conceptionArtistique,.graphisme,.communication,.troisd{
+  padding-bottom: 2%;
+  text-align: center;
+  width: calc(100%/2);
+  background-color: white;
+}
+
+.nomServices{
+  font-size: 2.5em;
+  font-family: "D-DIN Bold", serif;
+}
+
+.descriptionServices{
+  font-size: 2em;
+  font-family: "Eras medium ITC", serif;
+  padding: 0 10% 0 10%;
+}
+
+/********************/
+
+#creations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: black;
+}
+
+.cards {  /* pour les écrans type téléphone */
+  box-shadow: 2px 0px 7px white;
+  padding: 40px;
+  margin-bottom: 1%;
+/*  margin-bottom: 0.8%;*/
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 24px; /* espacement entre les cards */
+  max-width: 80%; /* taille box */
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  padding-bottom: 140%; /* on ne met pas un height car on veut garder une certaine proportion */
+}
+
+.card:hover .card-background {
+  transform: scale(1.05) translateZ(0);
+}
+
+.card:hover p{
+  opacity: 0;
+}
+
+.card:hover h3{
+  opacity: 0;
+}
+
+.cards:hover > .card:not(:hover) .card-background {
+  filter: brightness(0.5) saturate(0) contrast(1.2) blur(5px);
+}
+
+.card-background {
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  filter: brightness(0.9) saturate(1.5) contrast(0.9); /* A MODIFIER!!!!!! */ 
+  position: absolute; /* image de fond prend toute la place de la cards (avec les 4 lignes du dessous)*/
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform-origin: center;
+  transition: .2s;
+}
+
+.card-content {
+  padding: 24px;
+  position: absolute;
+  font-family: arial, sans-serif;
+}
+
+.card-content p {
+  color: rgba(255, 255, 255, 1);
+  font-size: .9rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card-content h3 {
+  color: rgba(255, 255, 255, .8);
+  font-size: 1.9rem;
+  text-shadow: 2px 0px 5px white;
+}
+
+.infosCreations{
+  display: none;
+  width: 100vw;
+    height: 120vh;
+    margin-top: 14vh;
+    background-color: black;
+    opacity: 0.985;
+    z-index: 5;
+    position: absolute;
+    padding: 0 10vh 0 10vh;
+    overflow-y: hidden;
+}
+
+/* .activeInfo{ */
+  /* overflow-y: hidden; */
+/* } */
+
+.positionnementTexteCreations{
+  display: flex;
+  padding: 10vh 10vw 0 10vw;
+  overflow-x: hidden;
+  
+}
+
+.positionnementTexteCreations p{
+  align-self: center;
+  font-size: 2em;
+  width: 50vw;
+  font-family: "Eras medium ITC", serif;
+}
+
+.positionnementTexteCreations img{
+  height: auto;
+  width: 30vw;
+  padding-right: 5vh;
+}
+
+.toggleCrea
+{
+  position: relative;
+  height: 5vh;
+  width: 5vh;
+  top: 0vh;
+  right: -50vh;
+  background: transparent;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+} 
+
+.toggleCrea:hover
+{
+
+   background-color: #d4b902;
+} 
+
+.toggleCrea::before
+{ 
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transition: 0.2s; 
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0px 0 #fff;
+} 
+
+.toggleCrea::after
+{ 
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  transition: 0.2s;
+  transform: translateY(0px) rotate(-45deg);
+} 
+
+
+
+/*********************/
+
+svg{
+  background-color: black;
+}
+#contact{
+  top: 0px;
+  background-color: #0E0E0E;;
+}
+
+input[type=text], textarea, input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  margin-right: 0px;
+  margin-left: 0px;
+  resize: vertical;
+}
+label{
+  font-family: "Eras medium ITC", serif;
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 100%;
+  font-size: 3em;
+}
+
+input[type=submit] {
+  font-family: "Eras medium ITC", serif;
+  background-color:#d4b902;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: url("../img/cursorJaune.png"),pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #948001;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Ajouter box-sizing */
+  box-sizing : border-box;
+  border-radius:5px;
+  padding:20px;
+  width: 60%;
+  /* redéfinition 400 + 2*20 */
+  margin:0 auto;
+  padding-bottom: 5%;
+}
+
+.formulaire h2{
+  color: #ffc800;
+  font-size: 5em;
+}
+
+/* .vertical-line{
+  border-left: 2px solid #000;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: 20%;
+  margin: 0 20px;
+} */
+
+/**********************/
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10vh;
+  background-color: black;
+}
+
+footer p{
+  font-size: 2em;
+}
+
+footer a{
+  color: #d4b902;
+  transform: scale(3.5);
+/*********************/
+}
+
+.togglenone img{
+  width: 50%;
+  height: 50%;
+  float: right;
+  display: flex;
+  align-items: flex-end;
+  padding-right: 50%;
+  color: white;
+  margin-top: 20%;
+}
+.imgMenuCroix{
+  display: none;
+}
+
+/***************/
+.text-wrapper h1 {
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #d4b902; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #d4b902 }
+}
+
+/******/
+@media(min-width: 540px){  /* pour les écrans style pc */
+.cards {
+    grid-template-columns: repeat(2, 1fr); /* 1fr prend toute la largeur de la colonne */
+  }
+} 
+
+@media(min-width: 960px){
+  .cards {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media screen and (max-width: 800px) { 
+  .togglenone{
+      display: block;
+      float: right;
+  }
+
+  .togglenone a{
+      display: none;
+      float: right;
+  } 
+
+  .toggleactive{
+    display: none;
+  }  
+
+  #mediaQuery{
+    display: initial;
+  }
+
+  #prenom h2{
+    font-weight: 500;
+    font-size: 6em;
+    color: rgba(255,255,255,0.9);
+  }
+  .text-wrapper .letters {
+    font-weight: 700;
+    font-size:4em;
+  }
+
+  .infosCreations{
+    height: 150vh;
+  }
+
+  .positionnementTexteCreations{
+    display: flex;
+    padding: 30vh 10vw 0 10vw;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .toggleCrea
+{
+  right: -3vh;
+} 
+
+.positionnementTexteCreations img {
+  width: 50vw;
+  padding-bottom: 5vh;
+}
+
+.containerServices div img {
+  width: 50%;
+}
+
+.audiovisuel, .programmation, .conceptionArtistique,.graphisme,.communication,.troisd{
+  padding-bottom: 2%;
+  width:100%;
+}
+
+}
+
+@media(max-width: 585px){
+  #prenom h2{
+    font-weight: 300;
+    font-size: 4.5em;
+  }
+  .text-wrapper .letters {
+    font-weight: 100;
+    font-size:3em;
+}
+.containerPresentation h2{
+  font-size: 3.5em;
+}
+
+.containerPresentation p{
+  font-size: 1.9em;
+  font-family: "Eras medium ITC", serif;
+}
+
+.descriptionServices{
+  font-size: 1.55em;
+  padding: 0 10% 0 10%;
+}
+
+.pCreations{
+  font-size: 1.45em;
+}
+
+header #logo img{
+  color: white;
+  float: left;
+  display: flex;
+  align-items: flex-start;
+  margin-left : 6vw;
+  width: 7vw;
+} 
+#cv i{
+  transform: scale(2);
+}
+
+@media(max-width: 400px){
+  #prenom h2{
+    font-weight: 300;
+    font-size: 3.5em;
+  }
+}
