@@ -820,6 +820,7 @@ header #logo img{
 #cv i{
   transform: scale(2);
 }
+}
 
 @media(max-width: 400px){
   #prenom h2{
